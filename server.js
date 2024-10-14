@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const PORT = import.meta.PORT
+const PORT = import.meta.PORT || 3209
 
 const app = express()
 
@@ -13,6 +13,6 @@ app.get('/',(request, respone) => {
     })
 })
 
-app.listen(8080, () => {
-    console.log('server listening on http://localhost:8080' )
+app.listen(PORT, () => {
+    console.log(`Server listening on http://localhost:${PORT}`)
 })
