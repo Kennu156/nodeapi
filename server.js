@@ -1,17 +1,18 @@
-import { Express, response } from "express";
+import { express, response } from "express";
 import dotenv from 'dotenv'
+import carRoutes from "./routes/carroutes.js"
 
-dotenv.config()
+dotenv.config();
 
-const PORT = import.meta.PORT || 3209
+const PORT = process.env.PORT || 3600
 
-const app = express()
+const app = express();
 
-app.get('/',(request, respone) => {
+app.get('/',(request, response) => {
     response.json({
-        message: 'hello'
-    })
-})
+        message: 'hello',
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`)
