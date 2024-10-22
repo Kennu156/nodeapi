@@ -18,7 +18,7 @@ export const createBook = async (request, response) => {
             }
         })
 
-        response.status(262).json({
+        response.status(200).json({
             message: 'Book created sucseefely',
             newBook
         })
@@ -29,4 +29,35 @@ export const createBook = async (request, response) => {
             message: 'there is error'
         })
     }
+}
+
+export default updateBook = async (request, response) => {
+    const { title, description, year, author, publisher } = request.body;
+    const { id } = request.params;
+
+    try {
+
+        await prisma.book.update({
+            where: { id: Number(id) },
+            data: {
+                title,
+                description,
+                year,
+                author,
+                publisher
+            }
+        })
+
+        response.status(201).json({
+            message: 'Updated sucssese',
+            updateBook
+        })
+    }  catch (error) {
+        console.log(error)
+        response.status(500).json({
+            message: 'there is error'
+        })
+    }
+
+    
 }

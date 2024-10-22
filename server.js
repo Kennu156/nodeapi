@@ -7,6 +7,9 @@ dotenv.config();
 const PORT = process.env.PORT || 3600
 
 const app = express();
+app.use(express.json())
+
+app.use(bookRoutes)
 
 app.get('/',(request, response) => {
     response.json({
