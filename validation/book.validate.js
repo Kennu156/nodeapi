@@ -1,4 +1,4 @@
-import Joi from "joi";
+import joi from "joi";
 
 export const bookSchema = joi.object({
     title: joi.string().required().message({

@@ -4,7 +4,7 @@ import bookRoutes from "./routes/book.routes.js"
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3600
+const PORT = process.env.PORT || 3006
 
 const app = express();
 app.use(express.json())
