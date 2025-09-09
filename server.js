@@ -1,6 +1,7 @@
 import { express } from "express";
 import dotenv from 'dotenv'
 import bookRoutes from "./routes/book.routes.js"
+import authRoutes from "./routes/auth.routes.js" 
 import { swaggerOptions } from "./utils/swaggerOptions.js";
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
@@ -17,7 +18,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-
+app.use(authRoutes)
 app.use(bookRoutes)
 
 app.get('/',(request, response) => {
